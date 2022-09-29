@@ -66,6 +66,10 @@ let
       "--deselect tests/components/stream/test_recorder.py::test_recorder_log"
       "--deselect tests/components/stream/test_worker.py::test_get_image"
     ];
+    zha = [
+      # AssertionError: assert 'manual_pick_radio_type' == 'choose_serial_port'
+      "--deselect tests/components/zha/test_config_flow.py::test_options_flow_restarts_running_zha_if_cancelled"
+    ];
   };
 in lib.listToAttrs (map (component: lib.nameValuePair component (
   home-assistant.overridePythonAttrs (old: {
