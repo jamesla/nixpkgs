@@ -268,18 +268,6 @@ let
       });
     })
 
-    (self: super: {
-      xiaomi-ble = super.xiaomi-ble.overridePythonAttrs (oldAttrs: rec {
-        version = "0.9.0";
-        src = fetchFromGitHub {
-          owner = "Bluetooth-Devices";
-          repo = "xiaomi-ble";
-          rev = "refs/tags/v${version}";
-          hash = "sha256-xdh8WHrSkbuOGqSiIiufjiVaO719DMDYzbprE3s2kmQ=";
-        };
-      });
-    })
-
     # home-assistant-frontend does not exist in python3.pkgs
     (self: super: {
       home-assistant-frontend = self.callPackage ./frontend.nix { };
@@ -309,7 +297,7 @@ let
   extraPackagesFile = writeText "home-assistant-packages" (lib.concatMapStringsSep "\n" (pkg: pkg.pname) extraBuildInputs);
 
   # Don't forget to run parse-requirements.py after updating
-  hassVersion = "2022.9.1";
+  hassVersion = "2022.9.7";
 
 in python.pkgs.buildPythonApplication rec {
   pname = "homeassistant";
@@ -327,7 +315,7 @@ in python.pkgs.buildPythonApplication rec {
     owner = "home-assistant";
     repo = "core";
     rev = version;
-    hash = "sha256-JXMLIMiwM1givdV6HcSGHI9v3zh8gMiF9khaGWR5e9I=";
+    hash = "sha256-V6/y5HnJh8AVwkSg3uanYQRNvDcD1P0L+wBu98NpDek=";
   };
 
   # leave this in, so users don't have to constantly update their downstream patch handling
