@@ -2298,6 +2298,17 @@
     };
     version = "2.2.4";
   };
+  rails = {
+    dependencies = ["actioncable" "actionmailbox" "actionmailer" "actionpack" "actiontext" "actionview" "activejob" "activemodel" "activerecord" "activestorage" "activesupport" "railties"];
+    groups = ["default"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "10x2vb9rd3zpnp6f9vv60kmv9hlrcg4dxk9z5vhcdpkjbh3j8kpf";
+      type = "gem";
+    };
+    version = "7.0.2.3";
+  };
   rack-protection = {
     dependencies = ["rack"];
     groups = ["default"];
